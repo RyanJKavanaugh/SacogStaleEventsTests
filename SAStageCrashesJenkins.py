@@ -28,16 +28,16 @@ def sendEmail(fromm, to, subject, message):
         print "Error: unable to send email"
 
 
-# SERVER CREDENTIALS
-server = '10.10.2.16,1432'
-db ='sacars'
-user ='sacars'
-password ='sacars'
-
-# server = '10.0.16.5'
+# # SERVER CREDENTIALS
+# server = '10.10.2.16,1432'
 # db ='sacars'
-# user ='ryan'
-# password ='ryan'
+# user ='sacars'
+# password ='sacars'
+
+server = '10.0.16.5'
+db ='sacars'
+user ='ryan'
+password ='ryan'
 
 # VARIABLES
 eventNumber = 0
@@ -48,7 +48,7 @@ conn = pyodbc.connect("DRIVER={ODBC Driver 13 for SQL Server};SERVER=" + server 
 cursor = conn.cursor()
 
 # GET CRASHES OLDER THAN 8 HOURS VIA SQL
-cursor.execute('SELECT sub.* FROM(SELECT situation_id, update_number, update_timestamp, situation_update_json FROM (SELECT *, maxnum = MAX(update_number) OVER (PARTITION BY situation_id) FROM [SACARS].[dbo].[evt_Situations]) as s WHERE update_number = maxnum) sub WHERE situation_update_json LIKE \'%"headline":{\"category\":%\' AND update_timestamp < DATEADD(hh, -11, GETDATE()) AND situation_update_json NOT LIKE \'%DELETE%\' AND situation_update_json NOT LIKE \'%ENDED%\'')
+cursor.execute('SELECT sub.* FROM(SELECT situation_id, update_number, update_timestamp, situation_update_json FROM (SELECT *, maxnum = MAX(update_number) OVER (PARTITION BY situation_id) FROM [SACARS].[dbo].[evt_Situations]) as s WHERE update_number = maxnum) sub WHERE situation_update_json LIKE \'%"headline":{\"category\":2%\' AND update_timestamp < DATEADD(hh, -11, GETDATE()) AND situation_update_json NOT LIKE \'%DELETE%\' AND situation_update_json NOT LIKE \'%ENDED%\'')
 
 # FETCH ALL DATA FROM THE SQL QUERY AND PRINT IT
 allEventsJson = cursor.fetchall()
