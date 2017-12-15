@@ -29,15 +29,15 @@ def sendEmail(fromm, to, subject, message):
 
 
 # SERVER CREDENTIALS
-# server = '10.10.2.16,1432'
-# db ='sacars'
-# user ='sacars'
-# password ='sacars'
-
-server = '10.0.16.5'
+server = '10.10.2.16,1432'
 db ='sacars'
-user ='ryan'
-password ='ryan'
+user ='sacars'
+password ='sacars'
+
+# server = '10.0.16.5'
+# db ='sacars'
+# user ='ryan'
+# password ='ryan'
 
 # VARIABLES
 eventNumber = 0
