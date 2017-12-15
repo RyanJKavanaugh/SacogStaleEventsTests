@@ -87,4 +87,4 @@ if numberOfEvents > 0:
         From = 'ryan.kavanaugh@crc-corp.com'
         To = ['ryan.kavanaugh@crc-corp.com', 'lauren.jenkins@crc-corp.com']  # 'mary.crowe@crc-corp.com',
         print emailString
-        #sendEmail(From, To, Subject, Message)
+        sendEmail(From, To, Subject, Message)
