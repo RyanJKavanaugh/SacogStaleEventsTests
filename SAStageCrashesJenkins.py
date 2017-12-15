@@ -44,7 +44,7 @@ eventNumber = 0
 emailBody = ''
 
 # CONNECT TO THE SERVER VIA THE ABOVE CREDENTIALS
-conn = pyodbc.connect("DRIVER={SQL Server};SERVER=" + server + ';DATABASE=' + db +';UID=' + user + ';PWD=' + password)
+conn = pyodbc.connect("DRIVER={ODBC Driver 13 for SQL Server};SERVER=" + server + ';DATABASE=' + db +';UID=' + user + ';PWD=' + password)
 cursor = conn.cursor()
 
 # GET CRASHES OLDER THAN 8 HOURS VIA SQL
