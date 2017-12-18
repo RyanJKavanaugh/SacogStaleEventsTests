@@ -74,17 +74,22 @@ for event in allEventsJson:
 
 print 'The number of crash items in need of review: ' + str(len(crashEventIDs))
 
-# SEND EMAIL
-if numberOfEvents > 0:
-        emailString = 'Hello,' + '\n' + '\n' + 'The following Crash Events in Sacog Staging are older than 8 hours: ' + '\n'
-        # for item in crashEventIDs:
-        #         emailString = emailString + str(item) + '\n'
-        emailString = emailString + emailBody
-        emailString = emailString + '\n' + '\n' + 'Best regards,' + '\n' + '\n' + 'Castle Rock QA Robot'
 
-        Message = emailString
-        Subject = 'Test Email'
-        From = 'ryan.kavanaugh@crc-corp.com'
-        To = ['ryan.kavanaugh@crc-corp.com', 'lauren.jenkins@crc-corp.com']  # 'mary.crowe@crc-corp.com',
-        print emailString
-        sendEmail(From, To, Subject, Message)
+# EMAIL BODY IF NO EVENTS ARE STALE
+if numberOfEvents < 1:
+    emailBody = '\n' + 'Events Requiring Attention: ' + str(numberOfEvents)
+
+
+# SEND EMAIL
+emailString = 'Hello,' + '\n' + '\n' + 'The following Crash Events in Sacog Staging are older than 8 hours: ' + '\n'
+# for item in crashEventIDs:
+#         emailString = emailString + str(item) + '\n'
+emailString = emailString + emailBody
+emailString = emailString + '\n' + '\n' + 'Best regards,' + '\n' + '\n' + 'Castle Rock QA Robot'
+
+Message = emailString
+Subject = 'Test Email'
+From = 'ryan.kavanaugh@crc-corp.com'
+To = ['ryan.kavanaugh@crc-corp.com', 'lauren.jenkins@crc-corp.com']  # 'mary.crowe@crc-corp.com',
+print emailString
+sendEmail(From, To, Subject, Message)
