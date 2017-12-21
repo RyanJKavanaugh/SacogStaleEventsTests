@@ -81,7 +81,7 @@ if numberOfEvents < 1:
 
 
 # SEND EMAIL
-emailString = 'Hello,' + '\n' + '\n' + 'The following Crash Events in Sacog Staging are older than 8 hours: ' + '\n'
+emailString = 'Hello,' + '\n' + '\n' + 'The following Crash Events in Sacog are older than 8 hours: ' + '\n'
 # for item in crashEventIDs:
 #         emailString = emailString + str(item) + '\n'
 emailString = emailString + emailBody
